@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">coditron_notifications_notificationsend_listing.coditron_notifications_notificationsend_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>coditron_notifications_notificationsend_columns</spinner>
+		<deps>
+			<dep>coditron_notifications_notificationsend_listing.coditron_notifications_notificationsend_listing_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="coditron_notifications_notificationsend_listing_data_source" component="Magento_Ui/js/grid/provider">
+		<settings>
+			<storageConfig>
+				<param name="indexField" xsi:type="string">notificationsend_id</param>
+			</storageConfig>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Coditron_Notifications::NotificationSend</aclResource>
+		<dataProvider name="coditron_notifications_notificationsend_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>notificationsend_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="coditron_notifications_notificationsend_columns">
+		<!-- <settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">coditron_notifications_notificationsend_listing.coditron_notifications_notificationsend_listing.coditron_notifications_notificationsend_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">notificationsend_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" xsi:type="url" path="coditron_notifications/NotificationSend/inlineEdit"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">coditron_notifications_notificationsend_listing.coditron_notifications_notificationsend_listing.coditron_notifications_notificationsend_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings> -->
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>notificationsend_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="notificationsend_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<!-- <column name="notification_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Notification ID</label>
+			</settings>
+		</column> -->
+		<actionsColumn name="actions" class="Coditron\Notifications\Ui\Component\Listing\Column\NotificationSendActions">
+			<settings>
+				<indexField>notificationsend_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+		<column name="customer_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Customer ID</label>
+			</settings>
+		</column>
+		<column name="message">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Message</label>
+			</settings>
+		</column>
+		<column name="from_date">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">From Date</label>
+			</settings>
+		</column>
+		<column name="to_date">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">To Date</label>
+			</settings>
+		</column>
+		<column name="status">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Status</label>
+			</settings>
+		</column>
+	</columns>
+</listing>

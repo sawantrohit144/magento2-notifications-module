@@ -1,0 +1,19 @@
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+ 
+.success-message {
+    color: green;
+    border: 2px solid green;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.error-message {
+    color: red;
+    border: 2px solid red;
+    margin-top: 10px;
+    padding: 10px;
+}

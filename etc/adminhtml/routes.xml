@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+	<router id="admin">
+		<route frontName="coditron_notifications" id="coditron_notifications">
+			<module before="Magento_Backend" name="Coditron_Notifications"/>
+		</route>
+	</router>
+</config>

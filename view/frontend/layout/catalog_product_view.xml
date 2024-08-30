@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Coditron_Notifications::css/notify.css"/>
+    </head>
+    <body>
+        <referenceBlock name="product.info.main">
+            <block class="Coditron\Notifications\Block\OutOfStockButton" name="outofstock.button" template="Coditron_Notifications::out_of_stock_button.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

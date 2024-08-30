@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Coditron_Notifications::css/bell.css"/>
+        <script src="Coditron_Notifications::js/bell.js"/>
+    </head>
+    <body>
+        <referenceContainer name="header-wrapper">
+            <block class="Coditron\Notifications\Block\BellIcon" name="bell.icon" template="Coditron_Notifications::bell-icon.phtml" before="minicart" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

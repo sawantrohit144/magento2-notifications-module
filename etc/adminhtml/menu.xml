@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Coditron::top_level_coditron_notification" title="Notifications" module="Coditron_Notifications" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="Coditron_Notifications::Coditron_Notifications_notification" title="Notification" module="Coditron_Notifications" sortOrder="9999" resource="Magento_Backend::content" parent="Coditron::top_level_coditron_notification" action="coditron_notifications/notification/index"/>
+		<add id="Coditron_Notifications::Coditron_Notifications_notificationtype" title="Notification Type" module="Coditron_Notifications" sortOrder="9999" resource="Magento_Backend::content" parent="Coditron::top_level_coditron_notification" action="coditron_notifications/notificationtype/index"/>
+		<add id="Coditron_Notifications::Coditron_Notifications_notificationsend" title="Notification Send" module="Coditron_Notifications" sortOrder="9999" resource="Magento_Backend::content" parent="Coditron::top_level_coditron_notification" action="coditron_notifications/notificationsend/index"/>
+		<add id="Coditron_Notifications::Coditron_Notifications_notificationoutofstock" title="Requests Out Of Stock" module="Coditron_Notifications" sortOrder="9999" resource="Magento_Backend::content" parent="Coditron::top_level_coditron_notification" action="coditron_notifications/notificationoutofstock/index"/>
+	</menu>
+</config>

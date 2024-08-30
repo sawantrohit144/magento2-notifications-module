@@ -1,0 +1,23 @@
+<!-- /**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */ -->
+<?php if ($block->isBellIconEnabled() && $block->isCustLoggedIn()): ?>
+    <div class="bell-icon">
+        <div class="bell-icon-display">
+            <?php $iconUrl = $block->getBellIconUrl(); ?>
+            <img src="<?php echo $iconUrl; ?>" alt="Bell Icon" class="bell-icon-img"/>
+            <?php $notificationCount = $block->getUnreadNotificationCount(); ?>
+            <span class="notification-count"><?php if($notificationCount>0){ echo $notificationCount; } ?></span>
+            <div class="bell-dropdown" id="bellDropdown">
+                <div id="notification-content">
+                    <!-- Notifications will be loaded here via AJAX -->
+                </div>
+                <div id="no-notifications" style="display: none;">
+                    <a href="#">No notifications available</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

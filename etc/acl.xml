@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Coditron_Notifications::Notification" title="Notification" sortOrder="10">
+					<resource id="Coditron_Notifications::Notification_save" title="Save Notification" sortOrder="10"/>
+					<resource id="Coditron_Notifications::Notification_delete" title="Delete Notification" sortOrder="20"/>
+					<resource id="Coditron_Notifications::Notification_update" title="Update Notification" sortOrder="30"/>
+					<resource id="Coditron_Notifications::Notification_view" title="View Notification" sortOrder="40"/>
+				</resource>
+				<resource id="Coditron_Notifications::NotificationType" title="NotificationType" sortOrder="10">
+					<resource id="Coditron_Notifications::NotificationType_save" title="Save NotificationType" sortOrder="10"/>
+					<resource id="Coditron_Notifications::NotificationType_delete" title="Delete NotificationType" sortOrder="20"/>
+					<resource id="Coditron_Notifications::NotificationType_update" title="Update NotificationType" sortOrder="30"/>
+					<resource id="Coditron_Notifications::NotificationType_view" title="View NotificationType" sortOrder="40"/>
+				</resource>
+				<resource id="Coditron_Notifications::NotificationSend" title="NotificationSend" sortOrder="10">
+					<resource id="Coditron_Notifications::NotificationSend_save" title="Save NotificationSend" sortOrder="10"/>
+					<resource id="Coditron_Notifications::NotificationSend_delete" title="Delete NotificationSend" sortOrder="20"/>
+					<resource id="Coditron_Notifications::NotificationSend_update" title="Update NotificationSend" sortOrder="30"/>
+					<resource id="Coditron_Notifications::NotificationSend_view" title="View NotificationSend" sortOrder="40"/>
+				</resource>
+				<resource id="Coditron_Notifications::NotificationOutOfStock" title="NotificationOutOfStock" sortOrder="10">
+					<resource id="Coditron_Notifications::NotificationOutOfStock_save" title="Save NotificationOutOfStock" sortOrder="10"/>
+					<resource id="Coditron_Notifications::NotificationOutOfStock_delete" title="Delete NotificationOutOfStock" sortOrder="20"/>
+					<resource id="Coditron_Notifications::NotificationOutOfStock_update" title="Update NotificationOutOfStock" sortOrder="30"/>
+					<resource id="Coditron_Notifications::NotificationOutOfStock_view" title="View NotificationOutOfStock" sortOrder="40"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

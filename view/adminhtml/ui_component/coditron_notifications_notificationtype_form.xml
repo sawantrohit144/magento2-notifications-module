@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">coditron_notifications_notificationtype_form.notificationtype_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Coditron\Notifications\Block\Adminhtml\NotificationType\Edit\BackButton"/>
+			<button name="delete" class="Coditron\Notifications\Block\Adminhtml\NotificationType\Edit\DeleteButton"/>
+			<button name="save" class="Coditron\Notifications\Block\Adminhtml\NotificationType\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Coditron\Notifications\Block\Adminhtml\NotificationType\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>coditron_notifications_notificationtype_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>coditron_notifications_notificationtype_form.notificationtype_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="notificationtype_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="notificationtype_form_data_source" class="Coditron\Notifications\Model\NotificationType\DataProvider">
+			<settings>
+				<requestFieldName>notificationtype_id</requestFieldName>
+				<primaryFieldName>notificationtype_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="name" formElement="input" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">NotificationType</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Name</label>
+				<dataScope>name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

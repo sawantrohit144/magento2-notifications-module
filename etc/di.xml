@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Coditron\Notifications\Api\NotificationRepositoryInterface" type="Coditron\Notifications\Model\NotificationRepository"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationInterface" type="Coditron\Notifications\Model\Notification"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Coditron\Notifications\Model\ResourceModel\Notification\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">coditron_notifications_notification</argument>
+			<argument name="resourceModel" xsi:type="string">Coditron\Notifications\Model\ResourceModel\Notification\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="coditron_notifications_notification_listing_data_source" xsi:type="string">Coditron\Notifications\Model\ResourceModel\Notification\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	
+	<preference for="Coditron\Notifications\Api\NotificationTypeRepositoryInterface" type="Coditron\Notifications\Model\NotificationTypeRepository"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationTypeInterface" type="Coditron\Notifications\Model\NotificationType"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationTypeSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Coditron\Notifications\Model\ResourceModel\NotificationType\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">coditron_notifications_notificationtype</argument>
+			<argument name="resourceModel" xsi:type="string">Coditron\Notifications\Model\ResourceModel\NotificationType\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="coditron_notifications_notificationtype_listing_data_source" xsi:type="string">Coditron\Notifications\Model\ResourceModel\NotificationType\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<type name="Magento\Framework\Data\Form\Element\AbstractElement">
+        <arguments>
+            <argument name="options" xsi:type="object">Coditron\Notifications\Ui\Component\Listing\Column\NotificationTypeOptions</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Data\Form\Element\AbstractElement">
+        <arguments>
+            <argument name="options" xsi:type="object">Coditron\Notifications\Ui\Component\Listing\Column\StatusOptions</argument>
+        </arguments>
+    </type>
+	<preference for="Coditron\Notifications\Api\NotificationSendRepositoryInterface" type="Coditron\Notifications\Model\NotificationSendRepository"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationSendInterface" type="Coditron\Notifications\Model\NotificationSend"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationSendSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Coditron\Notifications\Model\ResourceModel\NotificationSend\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">coditron_notifications_notificationsend</argument>
+			<argument name="resourceModel" xsi:type="string">Coditron\Notifications\Model\ResourceModel\NotificationSend\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="coditron_notifications_notificationsend_listing_data_source" xsi:type="string">Coditron\Notifications\Model\ResourceModel\NotificationSend\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	
+	<preference for="Coditron\Notifications\Api\NotificationOutOfStockRepositoryInterface" type="Coditron\Notifications\Model\NotificationOutOfStockRepository"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationOutOfStockInterface" type="Coditron\Notifications\Model\NotificationOutOfStock"/>
+	<preference for="Coditron\Notifications\Api\Data\NotificationOutOfStockSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Coditron\Notifications\Model\ResourceModel\NotificationOutOfStock\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">coditron_notifications_notificationoutofstock</argument>
+			<argument name="resourceModel" xsi:type="string">Coditron\Notifications\Model\ResourceModel\NotificationOutOfStock\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="coditron_notifications_notificationoutofstock_listing_data_source" xsi:type="string">Coditron\Notifications\Model\ResourceModel\NotificationOutOfStock\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

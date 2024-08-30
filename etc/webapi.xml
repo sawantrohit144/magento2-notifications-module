@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<!-- Custom Notification -->
+	<route url="/V1/coditron-notifications/notification" method="POST">
+		<service class="Coditron\Notifications\Api\NotificationRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::Notification_save"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notification/search" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Coditron_Notifications::Notification_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notification/:notificationId" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Coditron_Notifications::Notification_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notification/:notificationId" method="PUT">
+		<service class="Coditron\Notifications\Api\NotificationRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::Notification_update"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notification/:notificationId" method="DELETE">
+		<service class="Coditron\Notifications\Api\NotificationRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Coditron_Notifications::Notification_delete"/>
+		</resources>
+	</route>
+	<!-- Notification Type -->
+	<route url="/V1/coditron-notifications/notificationtype" method="POST">
+		<service class="Coditron\Notifications\Api\NotificationTypeRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationType_save"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationtype/search" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationTypeRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationType_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationtype/:notificationtypeId" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationTypeRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationType_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationtype/:notificationtypeId" method="PUT">
+		<service class="Coditron\Notifications\Api\NotificationTypeRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationType_update"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationtype/:notificationtypeId" method="DELETE">
+		<service class="Coditron\Notifications\Api\NotificationTypeRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationType_delete"/>
+		</resources>
+	</route>
+	<!-- Notification Send -->
+	<route url="/V1/coditron-notifications/notificationsend" method="POST">
+		<service class="Coditron\Notifications\Api\NotificationSendRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationSend_save"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationsend/search" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationSendRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationSend_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationsend/:notificationsendId" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationSendRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationSend_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationsend/:notificationsendId" method="PUT">
+		<service class="Coditron\Notifications\Api\NotificationSendRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationSend_update"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationsend/:notificationsendId" method="DELETE">
+		<service class="Coditron\Notifications\Api\NotificationSendRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationSend_delete"/>
+		</resources>
+	</route>
+	<!-- Request Out of stock -->
+	<route url="/V1/coditron-notifications/notificationoutofstock" method="POST">
+		<service class="Coditron\Notifications\Api\NotificationOutOfStockRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationOutOfStock_save"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationoutofstock/search" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationOutOfStockRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationOutOfStock_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationoutofstock/:notificationoutofstockId" method="GET">
+		<service class="Coditron\Notifications\Api\NotificationOutOfStockRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationOutOfStock_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationoutofstock/:notificationoutofstockId" method="PUT">
+		<service class="Coditron\Notifications\Api\NotificationOutOfStockRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationOutOfStock_update"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-notifications/notificationoutofstock/:notificationoutofstockId" method="DELETE">
+		<service class="Coditron\Notifications\Api\NotificationOutOfStockRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Coditron_Notifications::NotificationOutOfStock_delete"/>
+		</resources>
+	</route>
+</routes>

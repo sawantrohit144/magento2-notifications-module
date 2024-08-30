@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="coditron_notifications_notification" resource="default" engine="innodb" comment="coditron_notifications_notification Table">
+		<column xsi:type="int" name="notification_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="notification_id"/>
+		</constraint>
+		<column name="notification_name" nullable="true" xsi:type="varchar" comment="notification_name" length="255"/>
+		<column name="description" nullable="true" xsi:type="text" comment="description"/>
+		<column name="notification_type" nullable="true" xsi:type="varchar" comment="notification_type" length="255"/>
+		<column name="status" nullable="true" xsi:type="boolean" comment="status"/>
+	    <column name="from_date" nullable="true" xsi:type="datetime" comment="From Date"/>
+	    <column name="to_date" nullable="true" xsi:type="datetime" comment="To Date"/>
+	</table>
+	<table name="coditron_notifications_notificationtype" resource="default" engine="innodb" comment="coditron_notifications_notificationtype Table">
+		<column xsi:type="int" name="notificationtype_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="notificationtype_id"/>
+		</constraint>
+		<column name="name" nullable="true" xsi:type="varchar" comment="name" length="255"/>
+		<column name="created_at" nullable="true" xsi:type="datetime" comment="created_at"/>
+	</table>
+	<table name="coditron_notifications_notificationsend" resource="default" engine="innodb" comment="Coditron Notifications Send Table">
+        <column xsi:type="int" name="notificationsend_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Send ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="notificationsend_id"/>
+        </constraint>
+        <column xsi:type="int" name="notification_id" padding="10" unsigned="true" nullable="false" comment="Notification ID"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="text" name="message" nullable="false" comment="Notification Message"/>
+        <column xsi:type="varchar" name="status" nullable="false" default="unread" length="100" comment="Notification Status"/>
+		<column name="from_date" nullable="true" xsi:type="datetime" comment="From Date"/>
+	    <column name="to_date" nullable="true" xsi:type="datetime" comment="To Date"/>
+    </table>
+	<table name="coditron_notifications_notificationoutofstock" resource="default" engine="innodb" comment="coditron_notifications_notificationoutofstock Table">
+		<column xsi:type="int" name="notificationoutofstock_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="notificationoutofstock_id"/>
+		</constraint>
+		<column name="customer_id" nullable="true" xsi:type="int" comment="customer_id" identity="false"/>
+		<column name="product_id" nullable="true" xsi:type="int" comment="product_id" identity="false"/>
+		<column name="product_name" nullable="true" xsi:type="varchar" comment="product_name" length="255"/>
+        <column xsi:type="varchar" name="status" nullable="false" default="pending" length="100" comment="Notification Status"/>
+	</table>
+</schema>

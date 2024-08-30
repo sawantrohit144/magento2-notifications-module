@@ -1,0 +1,170 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">coditron_notifications_notification_form.notification_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Coditron\Notifications\Block\Adminhtml\Notification\Edit\BackButton"/>
+			<button name="delete" class="Coditron\Notifications\Block\Adminhtml\Notification\Edit\DeleteButton"/>
+			<button name="save" class="Coditron\Notifications\Block\Adminhtml\Notification\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Coditron\Notifications\Block\Adminhtml\Notification\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>coditron_notifications_notification_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>coditron_notifications_notification_form.notification_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="notification_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="notification_form_data_source" class="Coditron\Notifications\Model\Notification\DataProvider">
+			<settings>
+				<requestFieldName>notification_id</requestFieldName>
+				<primaryFieldName>notification_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="notification_name" formElement="input" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Notification</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Notification Name</label>
+				<dataScope>notification_name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="description" formElement="textarea" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Notification</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Description</label>
+				<dataScope>description</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="notification_type" formElement="select">
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Notification Type</label>
+				<dataScope>notification_type</dataScope>
+			</settings>
+			<formElements>
+				<select>
+					<settings>
+						<options class="Coditron\Notifications\Ui\Component\Listing\Column\NotificationTypeOptions"/>
+						<caption translate="true">-- Please Select --</caption>
+					</settings>
+				</select>
+			</formElements>
+		</field>
+		<field name="status" formElement="select" sortOrder="40">
+		    <settings>
+		        <dataType>text</dataType>
+		        <label translate="true">Status</label>
+		        <dataScope>status</dataScope>
+		        <validation>
+		            <rule name="required-entry" xsi:type="boolean">false</rule>
+		        </validation>
+		    </settings>
+		    <formElements>
+		        <select>
+		            <settings>
+		                <options class="Coditron\Notifications\Ui\Component\Listing\Column\StatusOptions"/>
+		                <caption translate="true">-- Please Select --</caption>
+		            </settings>
+		        </select>
+		    </formElements>
+		</field>
+        <field name="from_date" formElement="date" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">From Date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="dataScope" xsi:type="string">from_date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
+                        <item name="timeFormat" xsi:type="string">HH:mm:ss</item>
+                        <item name="showsTime" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="storeTimeZone" xsi:type="string">string</item>
+                </item>
+            </argument>
+            <formElements>
+                <date>
+                    <settings>
+                        <time>true</time>
+                    </settings>
+                </date>
+            </formElements>
+        </field>
+        <field name="to_date" formElement="date" sortOrder="60">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">To Date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                    <item name="dataScope" xsi:type="string">to_date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
+                        <item name="timeFormat" xsi:type="string">HH:mm:ss</item>
+                        <item name="showsTime" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="storeTimeZone" xsi:type="string">string</item>
+                </item>
+            </argument>
+            <formElements>
+                <date>
+                    <settings>
+                        <time>true</time>
+                    </settings>
+                </date>
+            </formElements>
+        </field>
+	</fieldset>
+</form>

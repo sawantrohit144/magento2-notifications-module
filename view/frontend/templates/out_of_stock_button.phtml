@@ -1,0 +1,24 @@
+<!--
+/**
+ * Copyright © Coditron Technologies All rights reserved.
+ * See COPYING.txt for license details.
+ * http://www.coditron.com | contact@coditron.com
+ */
+-->
+<?php if ($block->isProductOutOfStock()) : if($block->isCustLoggedIn() && $block->isEnable() && $block->shouldShowButton($block->getProduct()->getId())): ?>
+    <div class="out-of-stock-button">
+        <button type="button" id="notify-me-btn" class="action primary">
+           <?php echo $block->escapeHtml($block->getButtonText()); ?>
+        </button>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "#notify-me-btn": {
+            "Coditron_Notifications/js/notify-me": {
+                "product_id": "<?php echo $block->getProduct()->getId(); ?>",
+                "product_name": "<?php echo $block->escapeHtml($block->getProduct()->getName()); ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; endif; ?>
